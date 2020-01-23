@@ -23,7 +23,7 @@ $ scp -p -P 4242 level01@192.168.1.37:/etc/passwd .
 
   Good luck & Have fun
 
-          192.168.1.37 2a01:e0a:249:ce90:7d2a:afe7:a6f:5762 2a01:e0a:249:ce90:a00:27ff:fe20:2cd4
+          192.168.1.37
 level01@192.168.1.37's password: x24ti5gi3x0ol2eh4esiuxias
 passwd                                      100% 2477     3.0MB/s   00:00
 # install John The Ripper (john-jumbo) (http://macappstore.org/john-jumbo/)

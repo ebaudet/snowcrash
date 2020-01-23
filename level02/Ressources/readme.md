@@ -23,7 +23,7 @@ $ scp -p -P 4242 level02@192.168.1.37:~/level02.pcap .
 
   Good luck & Have fun
 
-          192.168.1.37 2a01:e0a:249:ce90:7d2a:afe7:a6f:5762 2a01:e0a:249:ce90:a00:27ff:fe20:2cd4
+          192.168.1.37
 level02@192.168.1.37's password: f2av5il02puano7naaf6adaaf
 level02.pcap                                100% 8302     5.8MB/s   00:00
 # and we change the permissions to read it. (or we can scp without -p option)
