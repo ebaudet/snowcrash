@@ -246,7 +246,7 @@ So we found the folowing password:
 with `\x7f` for <kbd>⌫ Delete</kbd> and `\r`for <kbd>enter</kbd>\
 so the password is : `ft_waNDReL0L`
 
-## Wireshark GUI 
+## Or Wireshark GUI 
 Or with the application Wireshark on graphical mode:
 
 ```bash
@@ -254,14 +254,17 @@ $ brew cask install wireshark
 ```
 
 Open Wireshark, and the file `level02.pcap` in the app, an search on the Data in each lines.\
-On line `43`, we found "Password" asked by `59.233.235.223` and just after the password type by `59.233.235.218` the user char for char with <kbd>⌫ Delete</kbd> (`7f`) and <kbd>enter</kbd> (`0d`) for the lines `45` to `85`
+On line `43`, we found "Password" asked by `59.233.235.223` and just after the password type by `59.233.235.218` the user char for char with <kbd>⌫ Delete</kbd> (`7f`) and <kbd>enter</kbd> (`0d`) for the lines `45` to `85`.
 
+## Finaly
 
+```bash
 level02@SnowCrash:~$ su flag02
 Password: ft_waNDReL0L
 Don't forget to launch getflag !
 flag02@SnowCrash:~$ getflag
 Check flag.Here is your token : kooda2puivaav1idi4f57q8iq
+```
 
 ****************************************
 
