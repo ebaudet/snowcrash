@@ -1,4 +1,4 @@
-# Level 01 : found flag01
+# Level 02 : found flag02
 
 ```bash
 flag01@SnowCrash:~$  su level02
