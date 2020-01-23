@@ -57,4 +57,6 @@ Check flag.Here is your token : viuaaale9huek52boumoomioc
 ****************************************
 
 Documentations :
+* https://superuser.com/questions/306163/what-is-the-you-have-new-mail-message-in-linux-unix
+* https://www.liquidweb.com/kb/how-to-display-list-all-jobs-in-cron-crontab/
 * https://www.freeformatter.com/cron-expression-generator-quartz.html
