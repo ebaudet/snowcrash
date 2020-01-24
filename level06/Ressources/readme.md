@@ -25,8 +25,19 @@ $r = x($argv[1], $argv[2]); print $r;
 
 ```
 
+```bash
+level06@SnowCrash:~$ php --version
+PHP 5.3.10-1ubuntu3.19 with Suhosin-Patch (cli) (built: Jul  2 2015 15:05:54)
+Copyright (c) 1997-2012 The PHP Group
+Zend Engine v2.3.0, Copyright (c) 1998-2012 Zend Technologies
+```
+
+
+As we see in [level06.php](level06.php),
 
 ****************************************
 
 Documentations :
+* https://www.php.net/manual/fr/function.preg-replace.php
 * https://bitquark.co.uk/blog/2013/07/23/the_unexpected_dangers_of_preg_replace
+* https://www.php.net/manual/fr/language.types.string.php
