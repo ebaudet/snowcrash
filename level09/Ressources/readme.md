@@ -125,5 +125,103 @@ fwrite("LD_PRELOAD detected through memo"..., 1, 48, 0xb7fce980LD_PRELOAD detect
 +++ exited (status 48) +++
 ```
 
+## With gdb
+
+```bash
+level09@SnowCrash:~$ nm level09
+08049f28 d _DYNAMIC
+08049ff4 d _GLOBAL_OFFSET_TABLE_
+08048b6c R _IO_stdin_used
+         w _Jv_RegisterClasses
+08049f18 d __CTOR_END__
+08049f14 d __CTOR_LIST__
+08049f20 D __DTOR_END__
+08049f1c d __DTOR_LIST__
+08048e50 r __FRAME_END__
+08049f24 d __JCR_END__
+08049f24 d __JCR_LIST__
+0804a034 A __bss_start
+0804a028 D __data_start
+08048b20 t __do_global_ctors_aux
+08048520 t __do_global_dtors_aux
+0804a02c D __dso_handle
+         w __gmon_start__
+08048b12 T __i686.get_pc_thunk.bx
+08049f14 d __init_array_end
+08049f14 d __init_array_start
+08048b10 T __libc_csu_fini
+08048aa0 T __libc_csu_init
+         U __libc_start_main@@GLIBC_2.0 # block hear
+         U __stack_chk_fail@@GLIBC_2.4
+0804a034 A _edata
+0804a06c A _end
+08048b4c T _fini
+08048b68 R _fp_hw
+08048408 T _init
+080484f0 T _start
+08048646 T afterSubstr
+0804a064 b completed.6159
+0804a028 W data_start
+0804a068 b dtor_idx.6161
+0804a030 d end.3170
+         U fputc@@GLIBC_2.0
+08048580 t frame_dummy
+         U fwrite@@GLIBC_2.0
+         U getenv@@GLIBC_2.0
+080486cb T isLib
+080487ce T main # pass here
+         U open@@GLIBC_2.0
+         U ptrace@@GLIBC_2.0
+         U putchar@@GLIBC_2.0
+         U puts@@GLIBC_2.0
+0804a040 B stderr@@GLIBC_2.0
+0804a060 B stdout@@GLIBC_2.0
+080485d4 T syscall_gets
+080485a4 T syscall_open
+```
+
+### GDB usage :
+
+```
+quit (q)							quitter gdb
+run (r)								lancer l’exécution
+
+break,watch,clear,delete (b,w,cl,d)	introduire un point d’arrêt, ou bien “surveiller” une variable
+
+step,next,continue (s,n,c)			avancer d’un pas (en entrant ou pas dans les sous-fonctions), relancer
+									jusqu’au prochain point d’arrêt
+stepi (si)							steps by one machine instruction
+
+print,backtrace,list (p,bt,l)		afficher la valeur d’une variable, la pile d’exécution, afficher l’endroit où
+									l’on se trouve dans le code
+
+disassemble /m my_function			disas function my_function
+
+info registers						print register values
+
+x/20w $rsp							print 20 word a partir du pointeur de pile
+
+commands							lists of commands to execute at each breakpoints
+
+
+```
+
+```bash
+level09@SnowCrash:~$ gdb ./level09
+(gdb) run
+Starting program: /home/user/level09/level09
+You should not reverse this
+[Inferior 1 (process 2978) exited with code 01]
+(gdb)
+```
+
+
+```
+(gdb) show disassembly-flavor
+The disassembly flavor is "att".
+(gdb) set disassembly-flavor intel
+(gdb) layout asm
+```
 Documentation :
 * https://aaronyoo.github.io/ptrace-anti-debug.html
+* https://devarea.developpez.com/dix-choses-faisables-avec-GDB/
