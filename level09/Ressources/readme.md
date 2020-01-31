@@ -27,6 +27,9 @@ d--x--x--x 1 root    users    340 Aug 30  2015 ..
 ----r--r-- 1 flag09  level09   26 Mar  5  2016 token
 ```
 
+
+## 1. Observation
+
 ```bash
 level09@SnowCrash:~$ ./level09
 You need to provied only one arg.
@@ -45,9 +48,57 @@ puts("You should not reverse this"You should not reverse this
 +++ exited (status 1) +++
 ```
 
+So the solutions is not by reversing the file *(see point 3. More about the reverse part)*.
+
+```bash
+level09@SnowCrash:~$ ./level09 aaaaaaaaaaaaaaaaaaaaaaaaaaaaaa
+abcdefghijklmnopqrstuvwxyz{|}~
+```
+
+As we can see, the programme `./level09` change the value of the string by adding 1 at each letters.
+
+```bash
+level09@SnowCrash:~$ cat token
+f4kmm6p|=�p�n��DB�Du{��
+level09@SnowCrash:~$ cat -e token
+f4kmm6p|=M-^B^?pM-^BnM-^CM-^BDBM-^CDu{^?M-^LM-^I$
+```
+
+## 2. Solution
+
+```bash
+# We make a python script that will reverse in inverse order.
+level09@SnowCrash:~$ echo "
+import sys
+file = sys.argv[1]
+with open(file, 'r') as f:
+    row = f.read()[:-1]
+    result = ''
+    for i, c in enumerate(row):
+        result = result + chr(ord(c) - i)
+    print (result)
+">/tmp/eb09
+# By launching this script on the content file token, we have a good string
+level09@SnowCrash:~$ python /tmp/eb09 token
+f3iji1ju5yuevaus41q1afiuq
+# that we can use to pass flag09
+level09@SnowCrash:~$ su flag09
+Password: f3iji1ju5yuevaus41q1afiuq
+Don't forget to launch getflag !
+# and get the flag.
+flag09@SnowCrash:~$ getflag
+Check flag.Here is your token : s5cAJpM8ev6XHw998pRWG728z
+```
+
+*******************************************************************************
+
+## 3. More about the reverse part.
+
+When trying to reverse the file, we saw this.
+
 But the program is protected.\
 As we can see on this [page](https://aaronyoo.github.io/ptrace-anti-debug.html), the protection
-of `ltrace` is by lauching a debugger, so no two tracers can trace the same tracee.
+of `ltrace` is by launching a debugger, so no two tracers can trace the same trace.
 
 ```bash
 level09@SnowCrash:~$ mktemp -d
@@ -65,7 +116,7 @@ level09@SnowCrash:/tmp/tmp.BoEzZcCi0q$ gcc -shared -fPIC -o ptrace_inject.so ptr
 ```
 
 ```bash
-level09@SnowCrash:~$ ltrace env LD_PRELOAD="/tmp/tmp.BoEzZcCi0q/ptrace_inject.s" ./level09 token
+level09@SnowCrash:~$ ltrace env LD_PRELOAD="/tmp/tmp.BoEzZcCi0q/ptrace_inject.so" ./level09 token
 __libc_start_main(0x8048db0, 4, 0xbffff734, 0x804b700, 0x804b770 <unfinished ...>
 strrchr("env", '/')                           = NULL
 setlocale(6, "")                              = NULL
@@ -125,7 +176,7 @@ fwrite("LD_PRELOAD detected through memo"..., 1, 48, 0xb7fce980LD_PRELOAD detect
 +++ exited (status 48) +++
 ```
 
-## With gdb
+### With gdb
 
 ```bash
 level09@SnowCrash:~$ nm level09
@@ -180,7 +231,7 @@ level09@SnowCrash:~$ nm level09
 080485a4 T syscall_open
 ```
 
-### GDB usage :
+#### GDB usage :
 
 ```
 quit (q)							quitter gdb
@@ -202,8 +253,6 @@ info registers						print register values
 x/20w $rsp							print 20 word a partir du pointeur de pile
 
 commands							lists of commands to execute at each breakpoints
-
-
 ```
 
 ```bash
@@ -215,13 +264,13 @@ You should not reverse this
 (gdb)
 ```
 
-
 ```
 (gdb) show disassembly-flavor
 The disassembly flavor is "att".
 (gdb) set disassembly-flavor intel
 (gdb) layout asm
 ```
+
 Documentation :
 * https://aaronyoo.github.io/ptrace-anti-debug.html
 * https://devarea.developpez.com/dix-choses-faisables-avec-GDB/

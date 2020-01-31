@@ -1,73 +1,73 @@
 Dump of assembler code for function main:
-   0x080487ce <+0>:     push   ebp
-   0x080487cf <+1>:     mov    ebp,esp
-   0x080487d1 <+3>:     push   edi
-   0x080487d2 <+4>:     push   ebx
-   0x080487d3 <+5>:     and    esp,0xfffffff0
-   0x080487d6 <+8>:     sub    esp,0x130
-   0x080487dc <+14>:    mov    eax,DWORD PTR [ebp+0xc]
-   0x080487df <+17>:    mov    DWORD PTR [esp+0x1c],eax
+   0x080487ce <+0>:     push   ebp                             ; backup stack frame base pointer RBP
+   0x080487cf <+1>:     mov    ebp,esp                         ; stack end pointer ESP
+   0x080487d1 <+3>:     push   edi                             ; push 1 arg EDI
+   0x080487d2 <+4>:     push   ebx                             ; keep EBX on stack
+   0x080487d3 <+5>:     and    esp,0xfffffff0                  ; allign stack
+   0x080487d6 <+8>:     sub    esp,0x130                       ; substract 304
+   0x080487dc <+14>:    mov    eax,DWORD PTR [ebp+0xc]         ;
+   0x080487df <+17>:    mov    DWORD PTR [esp+0x1c],eax        ;
    0x080487e3 <+21>:    mov    eax,gs:0x14
    0x080487e9 <+27>:    mov    DWORD PTR [esp+0x12c],eax
-   0x080487f0 <+34>:    xor    eax,eax
-   0x080487f2 <+36>:    mov    DWORD PTR [esp+0x24],0x0
-   0x080487fa <+44>:    mov    DWORD PTR [esp+0x20],0xffffffff
+   0x080487f0 <+34>:    xor    eax,eax                         ; eax = 0
+   0x080487f2 <+36>:    mov    DWORD PTR [esp+0x24],0x0        ; data = 0
+   0x080487fa <+44>:    mov    DWORD PTR [esp+0x20],0xffffffff ; addr =  0xffffffff
    0x08048802 <+52>:    mov    DWORD PTR [esp+0xc],0x0
-   0x0804880a <+60>:    mov    DWORD PTR [esp+0x8],0x1
+   0x0804880a <+60>:    mov    DWORD PTR [esp+0x8],0x1         ; pid = 1 : PT_READ_I
    0x08048812 <+68>:    mov    DWORD PTR [esp+0x4],0x0
-   0x0804881a <+76>:    mov    DWORD PTR [esp],0x0
-   0x08048821 <+83>:    call   0x80484e0 <ptrace@plt>
-   0x08048826 <+88>:    test   eax,eax
-   0x08048828 <+90>:    jns    0x8048840 <main+114>
-   0x0804882a <+92>:    mov    DWORD PTR [esp],0x8048b70
-   0x08048831 <+99>:    call   0x8048480 <puts@plt>
-   0x08048836 <+104>:   mov    eax,0x1
-   0x0804883b <+109>:   jmp    0x8048a77 <main+681>
-   0x08048840 <+114>:   mov    DWORD PTR [esp],0x8048b8c
-   0x08048847 <+121>:   call   0x8048470 <getenv@plt>
-   0x0804884c <+126>:   test   eax,eax
-   0x0804884e <+128>:   je     0x8048882 <main+180>
+   0x0804881a <+76>:    mov    DWORD PTR [esp],0x0             ; request = 0
+   0x08048821 <+83>:    call   0x80484e0 <ptrace@plt>          ; int ptrace(int request EDI, pid_t(signed int) pid ESI, caddr_t(char *) addr EDX, int data E10|ECX);
+   0x08048826 <+88>:    test   eax,eax                         ; if EAX == 0 (return ptrace)
+   0x08048828 <+90>:    jns    0x8048840 <main+114>            ; if EAX >= 0 jump <main+114>
+   0x0804882a <+92>:    mov    DWORD PTR [esp],0x8048b70       ; s = 0x8048b70"You should not reverse this"
+   0x08048831 <+99>:    call   0x8048480 <puts@plt>            ; int fputs(const char *restrict s EDI, FILE *restrict stream ESI);
+   0x08048836 <+104>:   mov    eax,0x1                         ; return 1
+   0x0804883b <+109>:   jmp    0x8048a77 <main+681>            ; goto end.
+   0x08048840 <+114>:   mov    DWORD PTR [esp],0x8048b8c       ; name = 0x8048b8c"LD_PRELOAD"
+   0x08048847 <+121>:   call   0x8048470 <getenv@plt>          ; char *getenv(const char *name);
+   0x0804884c <+126>:   test   eax,eax                         ; if EAX == 0
+   0x0804884e <+128>:   je     0x8048882 <main+180>            ; goto <main+180>
    0x08048850 <+130>:   mov    eax,ds:0x804a040
    0x08048855 <+135>:   mov    edx,eax
-   0x08048857 <+137>:   mov    eax,0x8048b98
-   0x0804885c <+142>:   mov    DWORD PTR [esp+0xc],edx
-   0x08048860 <+146>:   mov    DWORD PTR [esp+0x8],0x25
-   0x08048868 <+154>:   mov    DWORD PTR [esp+0x4],0x1
-   0x08048870 <+162>:   mov    DWORD PTR [esp],eax
-   0x08048873 <+165>:   call   0x8048460 <fwrite@plt>
-   0x08048878 <+170>:   mov    eax,0x1
-   0x0804887d <+175>:   jmp    0x8048a77 <main+681>
-   0x08048882 <+180>:   mov    DWORD PTR [esp+0x4],0x0
-   0x0804888a <+188>:   mov    DWORD PTR [esp],0x8048bbe
-   0x08048891 <+195>:   call   0x80484a0 <open@plt>
-   0x08048896 <+200>:   test   eax,eax
-   0x08048898 <+202>:   jle    0x80488cc <main+254>
-   0x0804889a <+204>:   mov    eax,ds:0x804a040
+   0x08048857 <+137>:   mov    eax,0x8048b98                   ;
+   0x0804885c <+142>:   mov    DWORD PTR [esp+0xc],edx         ; stream EDX
+   0x08048860 <+146>:   mov    DWORD PTR [esp+0x8],0x25        ; nitems = 37
+   0x08048868 <+154>:   mov    DWORD PTR [esp+0x4],0x1         ; size = 1
+   0x08048870 <+162>:   mov    DWORD PTR [esp],eax             ; ptr = EAX 0x8048b98"Injection Linked lib detected exit..\n"
+   0x08048873 <+165>:   call   0x8048460 <fwrite@plt>          ; size_t fwrite(const void *restrict ptr, size_t size, size_t nitems, FILE *restrict stream);
+   0x08048878 <+170>:   mov    eax,0x1                         ; return 1
+   0x0804887d <+175>:   jmp    0x8048a77 <main+681>            ; goto end.
+   0x08048882 <+180>:   mov    DWORD PTR [esp+0x4],0x0         ; oflag = 0 (O_RDONLY)
+   0x0804888a <+188>:   mov    DWORD PTR [esp],0x8048bbe       ; path = 0x8048bbe"/etc/ld.so.preload"
+   0x08048891 <+195>:   call   0x80484a0 <open@plt>            ; int open(const char *path, int oflag, ...);
+   0x08048896 <+200>:   test   eax,eax                         ; test EAX == 0
+   0x08048898 <+202>:   jle    0x80488cc <main+254>            ; if <= 0 jump <main+254>
+   0x0804889a <+204>:   mov    eax,ds:0x804a040                ; ? woiejrowejr
    0x0804889f <+209>:   mov    edx,eax
    0x080488a1 <+211>:   mov    eax,0x8048b98
-   0x080488a6 <+216>:   mov    DWORD PTR [esp+0xc],edx
-   0x080488aa <+220>:   mov    DWORD PTR [esp+0x8],0x25
-   0x080488b2 <+228>:   mov    DWORD PTR [esp+0x4],0x1
-   0x080488ba <+236>:   mov    DWORD PTR [esp],eax
-   0x080488bd <+239>:   call   0x8048460 <fwrite@plt>
+   0x080488a6 <+216>:   mov    DWORD PTR [esp+0xc],edx         ; ds:0x804a040 -> 0x8048c68"LD_PRELOAD detected through memory maps exit"
+   0x080488aa <+220>:   mov    DWORD PTR [esp+0x8],0x25        ; nitems = 0x25 = 37
+   0x080488b2 <+228>:   mov    DWORD PTR [esp+0x4],0x1         ; size = 1
+   0x080488ba <+236>:   mov    DWORD PTR [esp],eax             ; ptr = EAX 0x8048b98"Injection Linked lib detected exit..\n"
+   0x080488bd <+239>:   call   0x8048460 <fwrite@plt>          ; size_t fwrite(const void *restrict ptr, size_t size, size_t nitems, FILE *restrict stream);
    0x080488c2 <+244>:   mov    eax,0x1
-   0x080488c7 <+249>:   jmp    0x8048a77 <main+681>
-   0x080488cc <+254>:   mov    DWORD PTR [esp+0x4],0x0
-   0x080488d4 <+262>:   mov    DWORD PTR [esp],0x8048bd1
-   0x080488db <+269>:   call   0x80485a4 <syscall_open>
+   0x080488c7 <+249>:   jmp    0x8048a77 <main+681>            ; goto end.
+   0x080488cc <+254>:   mov    DWORD PTR [esp+0x4],0x0         ; p2 = 0
+   0x080488d4 <+262>:   mov    DWORD PTR [esp],0x8048bd1       ; p1 = /proc/self/maps
+   0x080488db <+269>:   call   0x80485a4 <syscall_open>        ; syscall_open(char *p1, int p2)
    0x080488e0 <+274>:   mov    DWORD PTR [esp+0x28],eax
    0x080488e4 <+278>:   cmp    DWORD PTR [esp+0x28],0xffffffff
-   0x080488e9 <+283>:   jne    0x8048a50 <main+642>
-   0x080488ef <+289>:   mov    eax,ds:0x804a040
+   0x080488e9 <+283>:   jne    0x8048a50 <main+642>            ; if ((return of syscall_open) != 0xffffffff) goto  <main+642>
+   0x080488ef <+289>:   mov    eax,ds:0x804a040                ;
    0x080488f4 <+294>:   mov    edx,eax
    0x080488f6 <+296>:   mov    eax,0x8048be4
-   0x080488fb <+301>:   mov    DWORD PTR [esp+0xc],edx
-   0x080488ff <+305>:   mov    DWORD PTR [esp+0x8],0x46
-   0x08048907 <+313>:   mov    DWORD PTR [esp+0x4],0x1
-   0x0804890f <+321>:   mov    DWORD PTR [esp],eax
-   0x08048912 <+324>:   call   0x8048460 <fwrite@plt>
-   0x08048917 <+329>:   mov    eax,0x1
-   0x0804891c <+334>:   jmp    0x8048a77 <main+681>
+   0x080488fb <+301>:   mov    DWORD PTR [esp+0xc],edx         ; stream..
+   0x080488ff <+305>:   mov    DWORD PTR [esp+0x8],0x46        ; nitems = 0x46 = 70
+   0x08048907 <+313>:   mov    DWORD PTR [esp+0x4],0x1         ; size = 1
+   0x0804890f <+321>:   mov    DWORD PTR [esp],eax             ; ptr = 0x8048be4"/proc/self/maps is unaccessible, probably a LD_PRELOAD attempt exit"
+   0x08048912 <+324>:   call   0x8048460 <fwrite@plt>          ; size_t fwrite(const void *restrict ptr, size_t size, size_t nitems, FILE *restrict stream);
+   0x08048917 <+329>:   mov    eax,0x1                         ; return 1
+   0x0804891c <+334>:   jmp    0x8048a77 <main+681>            ; goto end.
    0x08048921 <+339>:   mov    DWORD PTR [esp+0x4],0x8048c2b
    0x08048929 <+347>:   lea    eax,[esp+0x2c]
    0x0804892d <+351>:   mov    DWORD PTR [esp],eax
