@@ -234,25 +234,25 @@ level09@SnowCrash:~$ nm level09
 #### GDB usage :
 
 ```
-quit (q)							quitter gdb
-run (r)								lancer l’exécution
+quit (q)				quitter gdb
+run (r)					lancer l’exécution
 
 break,watch,clear,delete (b,w,cl,d)	introduire un point d’arrêt, ou bien “surveiller” une variable
 
-step,next,continue (s,n,c)			avancer d’un pas (en entrant ou pas dans les sous-fonctions), relancer
-									jusqu’au prochain point d’arrêt
-stepi (si)							steps by one machine instruction
+step,next,continue (s,n,c)		avancer d’un pas (en entrant ou pas dans les sous-fonctions), relancer
+					jusqu’au prochain point d’arrêt
+stepi (si)				steps by one machine instruction
 
 print,backtrace,list (p,bt,l)		afficher la valeur d’une variable, la pile d’exécution, afficher l’endroit où
-									l’on se trouve dans le code
+					l’on se trouve dans le code
 
-disassemble /m my_function			disas function my_function
+disassemble /m my_function		disas function my_function
 
-info registers						print register values
+info registers				print register values
 
-x/20w $rsp							print 20 word a partir du pointeur de pile
+x/20w $rsp				print 20 word a partir du pointeur de pile
 
-commands							lists of commands to execute at each breakpoints
+commands				lists of commands to execute at each breakpoints
 ```
 
 ```bash
@@ -274,3 +274,4 @@ The disassembly flavor is "att".
 Documentation :
 * https://aaronyoo.github.io/ptrace-anti-debug.html
 * https://devarea.developpez.com/dix-choses-faisables-avec-GDB/
+* https://sourceware.org/gdb/current/onlinedocs/gdb/Registers.html
