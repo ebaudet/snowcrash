@@ -174,6 +174,5 @@ The disassembly flavor is "att".
 
 Documentation :
 * https://linux.die.net/man/1/strings
-* https://aaronyoo.github.io/ptrace-anti-debug.html
 * https://devarea.developpez.com/dix-choses-faisables-avec-GDB/
 * https://sourceware.org/gdb/current/onlinedocs/gdb/Registers.html
