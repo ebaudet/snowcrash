@@ -130,6 +130,8 @@ Check flag.Here is your token : 7QiHafiNa3HVozsaXkawuYrTstxbpABHD8CPnHJ
 
 Et voici le flag : `7QiHafiNa3HVozsaXkawuYrTstxbpABHD8CPnHJ`
 
+----
+
 #### GDB usage :
 
 ```
@@ -171,6 +173,8 @@ The disassembly flavor is "att".
 (gdb) set disassembly-flavor intel
 (gdb) layout asm
 ```
+
+----
 
 Documentation :
 * https://linux.die.net/man/1/strings

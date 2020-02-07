@@ -2,39 +2,17 @@
 
 _A security 42 project_
 
+
 ## About
 
 The purpose of the project is the initiation to IT security.
 
 More information in the [subject](subject/fr.subject.pdf)
 
-## Ressources
 
-* [decode.fr](https://www.dcode.fr/fr)
-* https://security.stackexchange.com/questions/3989/how-to-determine-what-type-of-encoding-encryption-has-been-used
-* https://web.archive.org/web/20160403135857/https://forum.insidepro.com/viewtopic.php?t=8225
-
-
-## Project files
+## Flags
 
 ```
-.
-├── README.md
-├── level00
-│   ├── Ressources
-│   │   └── readme.md
-│   └── flag
-├── level01
-│   ├── Ressources
-│   │   └── readme.md
-│   └── flag
-└── subject
-    └── fr.subject.pdf
-
-5 directories, 6 files
-```
-
-Flags :
 00 : x24ti5gi3x0ol2eh4esiuxias
 01 : f2av5il02puano7naaf6adaaf
 02 : kooda2puivaav1idi4f57q8iq
@@ -49,6 +27,87 @@ Flags :
 11 : fa6v5ateaw21peobuub8ipe6s
 12 : g1qKMiRpXf53AWhDaU7FEkczr
 13 : 2A31L79asukciNyi8uppkEuSx
-14 :
+14 : 7QiHafiNa3HVozsaXkawuYrTstxbpABHD8CPnHJ
+```
 
-g1qKMiRpXf53AWhDaU7FEkczr
+
+## Project files
+
+```
+.
+├── README.md
+├── auteur
+├── level00
+│   ├── Ressources
+│   │   └── readme.md
+│   └── flag
+├── level01
+│   ├── Ressources
+│   │   └── readme.md
+│   └── flag
+├── level02
+│   ├── Ressources
+│   │   ├── level02.pcap
+│   │   ├── readit.py
+│   │   ├── readme.md
+│   │   └── tempfile
+│   └── flag
+├── level03
+│   ├── Ressources
+│   │   └── readme.md
+│   └── flag
+├── level04
+│   ├── Ressources
+│   │   └── readme.md
+│   └── flag
+├── level05
+│   ├── Ressources
+│   │   └── readme.md
+│   └── flag
+├── level06
+│   ├── Ressources
+│   │   ├── level06.php
+│   │   └── readme.md
+│   └── flag
+├── level07
+│   ├── Ressources
+│   │   └── readme.md
+│   └── flag
+├── level08
+│   ├── Ressources
+│   │   └── readme.md
+│   └── flag
+├── level09
+│   ├── Ressources
+│   │   ├── dissass.nasm
+│   │   ├── readme.md
+│   │   ├── reverse.py
+│   │   └── token
+│   └── flag
+├── level10
+│   ├── Ressources
+│   │   └── readme.md
+│   └── flag
+├── level11
+│   ├── Ressources
+│   │   └── readme.md
+│   └── flag
+├── level12
+│   ├── Ressources
+│   │   └── readme.md
+│   └── flag
+├── level13
+│   ├── Ressources
+│   │   └── readme.md
+│   └── flag
+├── level14
+│   ├── Ressources
+│   │   ├── getflag.asm
+│   │   └── readme.md
+│   └── flag
+└── subject
+    └── fr.subject.pdf
+
+31 directories, 41 files
+
+```

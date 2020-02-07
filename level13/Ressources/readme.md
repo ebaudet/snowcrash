@@ -119,6 +119,8 @@ your token is 2A31L79asukciNyi8uppkEuSx
 (gdb)
 ```
 
+-----
+
 #### GDB usage :
 
 ```

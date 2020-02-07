@@ -29,9 +29,6 @@ cdiiddwpgswtgt
 
 Mais ce n'est pas suffisant car `cdiiddwpgswtgt` est crypté.
 
-Documentation :
-* https://fr.wikipedia.org/wiki/Portail:Cryptologie 
-* https://www.dcode.fr/liste-outils#dcode
 
 Trying a lot of different encryption. ROT (chiffre de césar) semble fonctionner.
 * https://www.dcode.fr/chiffre-cesar
@@ -45,3 +42,11 @@ Don't forget to launch getflag !
 flag00@SnowCrash:~$ getflag
 Check flag.Here is your token : x24ti5gi3x0ol2eh4esiuxias
 ```
+
+--------------
+
+Documentation :
+* https://fr.wikipedia.org/wiki/Portail:Cryptologie
+* https://www.dcode.fr/liste-outils#dcode
+* https://security.stackexchange.com/questions/3989/how-to-determine-what-type-of-encoding-encryption-has-been-used
+* https://web.archive.org/web/20160403135857/https://forum.insidepro.com/viewtopic.php?t=8225
